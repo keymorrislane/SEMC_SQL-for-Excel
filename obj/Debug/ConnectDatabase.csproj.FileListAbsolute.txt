@@ -1,0 +1,16 @@
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\bin\Debug\ConnectDatabase.dll
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\bin\Debug\ConnectDatabase.pdb
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\bin\Debug\ConnectDatabase.dll.manifest
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\bin\Debug\ConnectDatabase.vsto
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\bin\Debug\Microsoft.Office.Tools.Common.dll
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\bin\Debug\Microsoft.Office.Tools.dll
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\bin\Debug\Microsoft.Office.Tools.Excel.dll
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\bin\Debug\Microsoft.Office.Tools.v4.0.Framework.dll
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\bin\Debug\Microsoft.VisualStudio.Tools.Applications.Runtime.dll
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\obj\Debug\ConnectDatabase.csprojResolveAssemblyReference.cache
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\obj\Debug\ConnectDatabase.Properties.Resources.resources
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\obj\Debug\ConnectDatabase.Ribbon1.resources
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\obj\Debug\ConnectDatabase.csproj.GenerateResource.Cache
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\obj\Debug\ConnectDatabase.dll
+C:\Dev\Proj\SEMC_SQL for Excel\ConnectDatabase\obj\Debug\ConnectDatabase.pdb
