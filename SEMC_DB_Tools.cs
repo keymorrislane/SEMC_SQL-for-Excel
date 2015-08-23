@@ -9,13 +9,13 @@ using Microsoft.Office.Tools.Excel;
 
 namespace ConnectDatabase
 {
-    public partial class ThisAddIn
+    public partial class SEMC_DB_Tools
     {
-        private void ThisAddIn_Startup(object sender, System.EventArgs e)
+        private void SEMC_DB_Tools_Startup(object sender, System.EventArgs e)
         {
         }
 
-        private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
+        private void SEMC_DB_Tools_Shutdown(object sender, System.EventArgs e)
         {
         }
 
@@ -27,8 +27,8 @@ namespace ConnectDatabase
         /// </summary>
         private void InternalStartup()
         {
-            this.Startup += new System.EventHandler(ThisAddIn_Startup);
-            this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
+            this.Startup += new System.EventHandler(SEMC_DB_Tools_Startup);
+            this.Shutdown += new System.EventHandler(SEMC_DB_Tools_Shutdown);
         }
         
         #endregion

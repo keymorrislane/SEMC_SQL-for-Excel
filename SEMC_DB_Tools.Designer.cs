@@ -15,7 +15,7 @@ namespace ConnectDatabase {
     /// 
     [Microsoft.VisualStudio.Tools.Applications.Runtime.StartupObjectAttribute(0)]
     [global::System.Security.Permissions.PermissionSetAttribute(global::System.Security.Permissions.SecurityAction.Demand, Name="FullTrust")]
-    public sealed partial class ThisAddIn : Microsoft.Office.Tools.AddInBase {
+    public sealed partial class SEMC_DB_Tools : Microsoft.Office.Tools.AddInBase {
         
         internal Microsoft.Office.Tools.CustomTaskPaneCollection CustomTaskPanes;
         
@@ -30,8 +30,8 @@ namespace ConnectDatabase {
         /// 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public ThisAddIn(global::Microsoft.Office.Tools.Excel.ApplicationFactory factory, global::System.IServiceProvider serviceProvider) : 
-                base(factory, serviceProvider, "AddIn", "ThisAddIn") {
+        public SEMC_DB_Tools(global::Microsoft.Office.Tools.Excel.ApplicationFactory factory, global::System.IServiceProvider serviceProvider) : 
+                base(factory, serviceProvider, "AddIn", "SEMC_DB_Tools") {
             Globals.Factory = factory;
         }
         
@@ -42,7 +42,7 @@ namespace ConnectDatabase {
         protected override void Initialize() {
             base.Initialize();
             this.Application = this.GetHostItem<Microsoft.Office.Interop.Excel.Application>(typeof(Microsoft.Office.Interop.Excel.Application), "Application");
-            Globals.ThisAddIn = this;
+            Globals.SEMC_DB_Tools = this;
             global::System.Windows.Forms.Application.EnableVisualStyles();
             this.InitializeCachedData();
             this.InitializeControls();
@@ -180,19 +180,19 @@ namespace ConnectDatabase {
         private Globals() {
         }
         
-        private static ThisAddIn _ThisAddIn;
+        private static SEMC_DB_Tools _SEMC_DB_Tools;
         
         private static global::Microsoft.Office.Tools.Excel.ApplicationFactory _factory;
         
         private static ThisRibbonCollection _ThisRibbonCollection;
         
-        internal static ThisAddIn ThisAddIn {
+        internal static SEMC_DB_Tools SEMC_DB_Tools {
             get {
-                return _ThisAddIn;
+                return _SEMC_DB_Tools;
             }
             set {
-                if ((_ThisAddIn == null)) {
-                    _ThisAddIn = value;
+                if ((_SEMC_DB_Tools == null)) {
+                    _SEMC_DB_Tools = value;
                 }
                 else {
                     throw new System.NotSupportedException();

@@ -164,8 +164,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Ribbon1.resx">
-      <DependentUpon>Ribbon1.cs</DependentUpon>
+    <EmbeddedResource Include="SEMC_SQL_For_Excel.resx">
+      <DependentUpon>SEMC_SQL_For_Excel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ConnectDatabase_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -176,20 +176,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Ribbon1.cs">
+    <Compile Include="SEMC_SQL_For_Excel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Ribbon1.Designer.cs">
-      <DependentUpon>Ribbon1.cs</DependentUpon>
+    <Compile Include="SEMC_SQL_For_Excel.Designer.cs">
+      <DependentUpon>SEMC_SQL_For_Excel.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThisAddIn.cs">
+    <Compile Include="SEMC_DB_Tools.cs">
       <SubType>Code</SubType>
     </Compile>
-    <None Include="ThisAddIn.Designer.xml">
-      <DependentUpon>ThisAddIn.cs</DependentUpon>
+    <None Include="SEMC_DB_Tools.Designer.xml">
+      <DependentUpon>SEMC_DB_Tools.cs</DependentUpon>
     </None>
-    <Compile Include="ThisAddIn.Designer.cs">
-      <DependentUpon>ThisAddIn.Designer.xml</DependentUpon>
+    <Compile Include="SEMC_DB_Tools.Designer.cs">
+      <DependentUpon>SEMC_DB_Tools.Designer.xml</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
@@ -216,7 +216,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="Excel" HostPackage="{20A848B8-E01F-4801-962E-25DB0FF57389}" OfficeVersion="14.0" VstxVersion="4.0" ApplicationType="Excel" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\14.0\Excel\InstallRoot\Path#excel.exe" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
         <Host Name="Excel" GeneratedCodeNamespace="ConnectDatabase" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
+          <HostItem Name="ThisAddIn" Code="SEMC_DB_Tools.cs" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="SEMC_DB_Tools.Designer.xml" GeneratedCode="SEMC_DB_Tools.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>
