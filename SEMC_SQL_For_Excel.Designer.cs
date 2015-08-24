@@ -38,6 +38,7 @@
             this.Connection = this.Factory.CreateRibbonGroup();
             this.QuickConnect = this.Factory.CreateRibbonMenu();
             this.Connect = this.Factory.CreateRibbonButton();
+            this.label1 = this.Factory.CreateRibbonLabel();
             this.Data = this.Factory.CreateRibbonGroup();
             this.ExportFromSQL = this.Factory.CreateRibbonButton();
             this.ImportInDB = this.Factory.CreateRibbonButton();
@@ -58,8 +59,10 @@
             // 
             this.Connection.Items.Add(this.QuickConnect);
             this.Connection.Items.Add(this.Connect);
+            this.Connection.Items.Add(this.label1);
             this.Connection.Label = "连接操作";
             this.Connection.Name = "Connection";
+            this.Connection.Position = this.Factory.RibbonPosition.BeforeOfficeId("Data");
             // 
             // QuickConnect
             // 
@@ -73,6 +76,11 @@
             this.Connect.Name = "Connect";
             this.Connect.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Connect_Click);
             // 
+            // label1
+            // 
+            this.label1.Label = "当前状态：未连接";
+            this.label1.Name = "label1";
+            // 
             // Data
             // 
             this.Data.Items.Add(this.ExportFromSQL);
@@ -85,6 +93,7 @@
             // 
             this.ExportFromSQL.Label = "从数据库导出";
             this.ExportFromSQL.Name = "ExportFromSQL";
+            this.ExportFromSQL.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ExportFromSQL_Click);
             // 
             // ImportInDB
             // 
@@ -122,6 +131,7 @@
         public Microsoft.Office.Tools.Ribbon.RibbonButton ImportInDB;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton Modify;
         internal Microsoft.Office.Tools.Ribbon.RibbonMenu QuickConnect;
+        internal Microsoft.Office.Tools.Ribbon.RibbonLabel label1;
     }
 
     partial class ThisRibbonCollection

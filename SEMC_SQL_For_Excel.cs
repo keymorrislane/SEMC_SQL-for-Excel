@@ -15,7 +15,8 @@ namespace ConnectDatabase
         }
         private void Connect_Click(object sender, RibbonControlEventArgs e)
         {
-
+            ConnectionManager connectionManager = new ConnectionManager();
+            connectionManager.Show();
         }
 
         private void QuickConnect_ItemsLoading(object sender, RibbonControlEventArgs e)
@@ -27,10 +28,14 @@ namespace ConnectDatabase
             int DBCount = nodes.Count;
             for(int i = 1; i <= DBCount; i++)
             {
-                RibbonSplitButton newDB = new RibbonSplitButton();
 
-                QuickConnect.Items.Add(RibbonSplitButton)
             }
+        }
+
+        private void ExportFromSQL_Click(object sender, RibbonControlEventArgs e)
+        {
+            ExportData exportData = new ExportData();
+            exportData.Show();
         }
     }
 }

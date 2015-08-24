@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.HostNameComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.HostAddressTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.PortTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.UserNameTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.DefaultSchemaTextBox = new System.Windows.Forms.TextBox();
+            this.ConnectionManagerButtonOK = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -53,13 +53,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "连接名称";
             // 
-            // comboBox1
+            // HostNameComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(141, 10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(346, 21);
-            this.comboBox1.TabIndex = 1;
+            this.HostNameComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.HostNameComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.HostNameComboBox.FormattingEnabled = true;
+            this.HostNameComboBox.Location = new System.Drawing.Point(141, 10);
+            this.HostNameComboBox.Name = "HostNameComboBox";
+            this.HostNameComboBox.Size = new System.Drawing.Size(346, 21);
+            this.HostNameComboBox.TabIndex = 1;
             // 
             // label2
             // 
@@ -70,28 +72,29 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "数据库地址";
             // 
-            // textBox1
+            // HostAddressTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 20);
-            this.textBox1.TabIndex = 3;
+            this.HostAddressTextBox.Location = new System.Drawing.Point(141, 55);
+            this.HostAddressTextBox.Name = "HostAddressTextBox";
+            this.HostAddressTextBox.Size = new System.Drawing.Size(181, 20);
+            this.HostAddressTextBox.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(347, 60);
+            this.label3.Location = new System.Drawing.Point(343, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "端口";
             // 
-            // textBox2
+            // PortTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(387, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.PortTextBox.Location = new System.Drawing.Point(387, 55);
+            this.PortTextBox.Name = "PortTextBox";
+            this.PortTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PortTextBox.TabIndex = 5;
+            this.PortTextBox.Text = "3306";
             // 
             // label4
             // 
@@ -105,7 +108,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(49, 139);
+            this.label5.Location = new System.Drawing.Point(49, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 7;
@@ -120,35 +123,36 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "默认Schema";
             // 
-            // textBox3
+            // UserNameTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(141, 101);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(346, 20);
-            this.textBox3.TabIndex = 9;
+            this.UserNameTextBox.Location = new System.Drawing.Point(141, 101);
+            this.UserNameTextBox.Name = "UserNameTextBox";
+            this.UserNameTextBox.Size = new System.Drawing.Size(346, 20);
+            this.UserNameTextBox.TabIndex = 9;
             // 
-            // textBox4
+            // PasswordTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(141, 135);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(346, 20);
-            this.textBox4.TabIndex = 10;
+            this.PasswordTextBox.Location = new System.Drawing.Point(141, 140);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(346, 20);
+            this.PasswordTextBox.TabIndex = 10;
             // 
-            // textBox5
+            // DefaultSchemaTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(141, 180);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(346, 20);
-            this.textBox5.TabIndex = 11;
+            this.DefaultSchemaTextBox.Location = new System.Drawing.Point(141, 180);
+            this.DefaultSchemaTextBox.Name = "DefaultSchemaTextBox";
+            this.DefaultSchemaTextBox.Size = new System.Drawing.Size(346, 20);
+            this.DefaultSchemaTextBox.TabIndex = 11;
             // 
-            // button1
+            // ConnectionManagerButtonOK
             // 
-            this.button1.Location = new System.Drawing.Point(399, 234);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "确定";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ConnectionManagerButtonOK.Location = new System.Drawing.Point(399, 234);
+            this.ConnectionManagerButtonOK.Name = "ConnectionManagerButtonOK";
+            this.ConnectionManagerButtonOK.Size = new System.Drawing.Size(75, 23);
+            this.ConnectionManagerButtonOK.TabIndex = 12;
+            this.ConnectionManagerButtonOK.Text = "确定";
+            this.ConnectionManagerButtonOK.UseVisualStyleBackColor = true;
+            this.ConnectionManagerButtonOK.Click += new System.EventHandler(this.ConnectionManagerButtonOK_Click);
             // 
             // button2
             // 
@@ -165,19 +169,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 269);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.ConnectionManagerButtonOK);
+            this.Controls.Add(this.DefaultSchemaTextBox);
+            this.Controls.Add(this.PasswordTextBox);
+            this.Controls.Add(this.UserNameTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.PortTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.HostAddressTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.HostNameComboBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ConnectionManager";
             this.Text = "连接管理器";
             this.Load += new System.EventHandler(this.ConnectionManager_Load);
@@ -189,18 +194,18 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox HostNameComboBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox HostAddressTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox PortTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox UserNameTextBox;
+        private System.Windows.Forms.TextBox PasswordTextBox;
+        private System.Windows.Forms.TextBox DefaultSchemaTextBox;
+        private System.Windows.Forms.Button ConnectionManagerButtonOK;
         private System.Windows.Forms.Button button2;
     }
 }

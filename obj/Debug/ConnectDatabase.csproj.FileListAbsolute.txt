@@ -30,3 +30,6 @@ C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.cspr
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.dll
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.pdb
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.SEMC_SQL_For_Excel.resources
+C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.ConnectionManager.resources
+C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.ExportData.resources
+C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.LineRangeWarning.resources
