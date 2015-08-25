@@ -164,6 +164,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="AESModel.cs" />
     <Compile Include="ConnectionManager.cs">
       <SubType>Form</SubType>
     </Compile>

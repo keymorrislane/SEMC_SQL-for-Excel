@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Text;
-using MySql.Data;
-using MySql.Data.MySqlClient;
-using MySql.Web;
 using System.Xml;
 
 namespace ConnectDatabase
@@ -20,59 +16,90 @@ namespace ConnectDatabase
         {
 
         }
-        public bool NewConnection(string hostName, string hostAddress, 
-                              string userName, string password, 
+        public bool NewConnection(string hostName, string hostAddress,
+                              string userName, string password,
                               string port, string defaultSchema)
         //Create a new Connection in an xml file.
         {
             string myFolderPath = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             string xmlPath = myFolderPath + "\\SEMC_SQL_For_Excel.xml";
             XmlDocument dbInfo = new XmlDocument();
-            if (!System.IO.File.Exists(xmlPath))
+            XmlElement root, newElement;
+            XmlAttribute newAttribute;
+            if (System.IO.File.Exists(xmlPath))
             {
-                try
+                dbInfo.Load(xmlPath);
+                if(dbInfo.DocumentElement == null)
                 {
-                    System.IO.File.Create(xmlPath);
-                    System.Windows.Forms.MessageBox.Show("配置文件已创建于"+xmlPath);
-                    dbInfo.Load(xmlPath);
-                    dbInfo.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" +
-                                   "\n<!DOCTYPE DBInfo[\n<!ELEMENT DBInfo ANY>\n<!ELEMENT DB ANY>" +
-                                   "\n<!ELEMENT Address ANY>\n<!ELEMENT Account ANY>" +
-                                   "\n<!ELEMENT PWD ANY>\n<!ELEMENT Port ANY>" +
-                                   "\n<!ELEMENT DefaultSchema ANY>" +
-                                   "\n<!ATTLIST DB HostName ID #REQUIRED>\n]>");
+                    dbInfo = null;
+                    System.IO.File.Delete(xmlPath);
+                    CreateXML(xmlPath);
                 }
-                catch(Exception ex)
-                {
-                    System.Windows.Forms.MessageBox.Show("创建配置文件失败。");
-                    return false;
-                }
+            }
+            else
+            {
+                CreateXML(xmlPath);
+                dbInfo.Load(xmlPath);
             }
             XmlElement userRecord = dbInfo.GetElementById(hostName);
             if (userRecord != null)
             {
                 userRecord.RemoveAll();
             }
-            XmlElement root;
-            this.AppendNode(dbInfo, dbInfo.DocumentElement, "DB HostName=" + hostName, "");
-            root = dbInfo.GetElementById(hostName);
-            this.AppendNode(dbInfo, root, "Address", hostAddress);
-            this.AppendNode(dbInfo, root, "Account", userName);
-            this.AppendNode(dbInfo, root, "PWD", password);
-            this.AppendNode(dbInfo, root, "port", port);
-            this.AppendNode(dbInfo, root, "DefaultSchema", defaultSchema);
-            dbInfo.Save(xmlPath);
-            return true;
+            root = dbInfo.DocumentElement;
+            newAttribute = dbInfo.CreateAttribute("HostName");
+            newElement = dbInfo.CreateElement("DB");
+            newElement.SetAttribute("HostName", hostName);
+            root.AppendChild(newElement);
+            root = newElement;
+            AppendNode(root, dbInfo, "Address", hostAddress);
+            AppendNode(root, dbInfo, "Account", userName);
+            AppendNode(root, dbInfo, "PWD", password);
+            AppendNode(root, dbInfo, "Port", port);
+            AppendNode(root, dbInfo, "DefaultSchema", defaultSchema);
+            try
+            {
+                dbInfo.Save(xmlPath);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
-        private void AppendNode(XmlDocument dbInfo, XmlElement root,
-                                string newElementString, string newAttributeString)
+        private void CreateXML(string xmlPath)
         {
-            XmlElement newElement;
-            XmlAttribute newAttribute;
-            newElement = dbInfo.CreateElement(newElementString);
-            newAttribute = dbInfo.CreateAttribute(newAttributeString);
-            newElement.SetAttributeNode(newAttribute);
+            try
+            {
+                System.IO.FileStream xmlFile = System.IO.File.Create(xmlPath);
+                System.Windows.Forms.MessageBox.Show("配置文件已创建于" + xmlPath);
+                xmlFile.Close();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.Encoding = new UTF8Encoding(false);
+            settings.NewLineChars = Environment.NewLine;
+            using (XmlWriter xmlWriter = XmlWriter.Create(xmlPath, settings))
+            {
+                xmlWriter.WriteStartDocument(false);
+                xmlWriter.WriteDocType("DBInfo", null, null, "<!ATTLIST DB HostName ID #REQUIRED>");
+                xmlWriter.WriteElementString("DBInfo", "\n");
+                xmlWriter.WriteEndDocument();
+                xmlWriter.Close();
+            }
+        }
+
+        private void AppendNode(XmlElement root, XmlDocument dbInfo,
+                                string newElementString, string newText)
+        {
+            XmlElement newElement = dbInfo.CreateElement(newElementString);
+            newElement.InnerText = newText;
             root.AppendChild(newElement);
         }
 
@@ -81,8 +108,8 @@ namespace ConnectDatabase
                               string port, string defaultSchema)
         {
             string connectStr = "server=" + hostAddress + ";User Id=" +
-                                userName + ";password=" + password + 
-                                "DataBase=" + defaultSchema;
+                                userName + ";password=" + password +
+                                ";DataBase=" + defaultSchema;
             try
             {
                 MySqlConnection thisConnection = new MySqlConnection(connectStr);
@@ -90,12 +117,18 @@ namespace ConnectDatabase
                 this.connectStatus = true;
                 return true;
             }
-            catch(MySqlException ex)
+            catch (MySqlException ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
                 this.connectStatus = false;
                 return false;
             }
+        }
+        static void Main(string[] args)
+        {
+            MySQLOperation obj = new MySQLOperation();
+            obj.NewConnection("test","localhost","root","abcd1234","3206","test");
+            return;
         }
     }
 }

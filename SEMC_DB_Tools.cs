@@ -9,6 +9,19 @@ using Microsoft.Office.Tools.Excel;
 
 namespace ConnectDatabase
 {
+    public class ConnectionStatus
+    {
+        public static bool alive
+        {
+            get; set;
+        }
+        public static string connectionName
+        {
+            get; set;
+        }
+        private static bool _alive = false;
+        private static string _connectName = "";
+    }
     public partial class SEMC_DB_Tools
     {
         private void SEMC_DB_Tools_Startup(object sender, System.EventArgs e)

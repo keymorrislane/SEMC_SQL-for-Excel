@@ -77,7 +77,7 @@
             this.HostAddressTextBox.Location = new System.Drawing.Point(141, 55);
             this.HostAddressTextBox.Name = "HostAddressTextBox";
             this.HostAddressTextBox.Size = new System.Drawing.Size(181, 20);
-            this.HostAddressTextBox.TabIndex = 3;
+            this.HostAddressTextBox.TabIndex = 2;
             // 
             // label3
             // 
@@ -93,7 +93,7 @@
             this.PortTextBox.Location = new System.Drawing.Point(387, 55);
             this.PortTextBox.Name = "PortTextBox";
             this.PortTextBox.Size = new System.Drawing.Size(100, 20);
-            this.PortTextBox.TabIndex = 5;
+            this.PortTextBox.TabIndex = 3;
             this.PortTextBox.Text = "3306";
             // 
             // label4
@@ -128,21 +128,23 @@
             this.UserNameTextBox.Location = new System.Drawing.Point(141, 101);
             this.UserNameTextBox.Name = "UserNameTextBox";
             this.UserNameTextBox.Size = new System.Drawing.Size(346, 20);
-            this.UserNameTextBox.TabIndex = 9;
+            this.UserNameTextBox.TabIndex = 4;
             // 
             // PasswordTextBox
             // 
             this.PasswordTextBox.Location = new System.Drawing.Point(141, 140);
             this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(346, 20);
-            this.PasswordTextBox.TabIndex = 10;
+            this.PasswordTextBox.TabIndex = 5;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
             // 
             // DefaultSchemaTextBox
             // 
             this.DefaultSchemaTextBox.Location = new System.Drawing.Point(141, 180);
             this.DefaultSchemaTextBox.Name = "DefaultSchemaTextBox";
             this.DefaultSchemaTextBox.Size = new System.Drawing.Size(346, 20);
-            this.DefaultSchemaTextBox.TabIndex = 11;
+            this.DefaultSchemaTextBox.TabIndex = 6;
             // 
             // ConnectionManagerButtonOK
             // 
@@ -162,6 +164,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // ConnectionManager
             // 

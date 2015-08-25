@@ -38,11 +38,11 @@
             this.Connection = this.Factory.CreateRibbonGroup();
             this.QuickConnect = this.Factory.CreateRibbonMenu();
             this.Connect = this.Factory.CreateRibbonButton();
-            this.label1 = this.Factory.CreateRibbonLabel();
             this.Data = this.Factory.CreateRibbonGroup();
             this.ExportFromSQL = this.Factory.CreateRibbonButton();
             this.ImportInDB = this.Factory.CreateRibbonButton();
             this.Modify = this.Factory.CreateRibbonButton();
+            this.Disconnect = this.Factory.CreateRibbonButton();
             this.DataBase.SuspendLayout();
             this.Connection.SuspendLayout();
             this.Data.SuspendLayout();
@@ -59,7 +59,7 @@
             // 
             this.Connection.Items.Add(this.QuickConnect);
             this.Connection.Items.Add(this.Connect);
-            this.Connection.Items.Add(this.label1);
+            this.Connection.Items.Add(this.Disconnect);
             this.Connection.Label = "连接操作";
             this.Connection.Name = "Connection";
             this.Connection.Position = this.Factory.RibbonPosition.BeforeOfficeId("Data");
@@ -75,11 +75,6 @@
             this.Connect.Label = "新连接";
             this.Connect.Name = "Connect";
             this.Connect.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Connect_Click);
-            // 
-            // label1
-            // 
-            this.label1.Label = "当前状态：未连接";
-            this.label1.Name = "label1";
             // 
             // Data
             // 
@@ -104,6 +99,13 @@
             // 
             this.Modify.Label = "修改数据库";
             this.Modify.Name = "Modify";
+            // 
+            // Disconnect
+            // 
+            this.Disconnect.Label = "断开连接";
+            this.Disconnect.Name = "Disconnect";
+            this.Disconnect.Enabled = false;
+            this.Disconnect.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Disconnect_Click);
             // 
             // SEMC_SQL_For_Excel
             // 
@@ -131,7 +133,7 @@
         public Microsoft.Office.Tools.Ribbon.RibbonButton ImportInDB;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton Modify;
         internal Microsoft.Office.Tools.Ribbon.RibbonMenu QuickConnect;
-        internal Microsoft.Office.Tools.Ribbon.RibbonLabel label1;
+        public Microsoft.Office.Tools.Ribbon.RibbonButton Disconnect;
     }
 
     partial class ThisRibbonCollection

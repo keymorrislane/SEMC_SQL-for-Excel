@@ -17,6 +17,10 @@ namespace ConnectDatabase
         {
             ConnectionManager connectionManager = new ConnectionManager();
             connectionManager.Show();
+            if (ConnectionStatus.alive)
+            {
+                Disconnect.Enabled = true;
+            }
         }
 
         private void QuickConnect_ItemsLoading(object sender, RibbonControlEventArgs e)
@@ -36,6 +40,11 @@ namespace ConnectDatabase
         {
             ExportData exportData = new ExportData();
             exportData.Show();
+        }
+
+        private void Disconnect_Click(object sender, RibbonControlEventArgs e)
+        {
+
         }
     }
 }

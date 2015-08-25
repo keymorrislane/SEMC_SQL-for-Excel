@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEMC_MySQL_For_Excel", "SEMC_MySQL_For_Excel.csproj", "{136EECBE-D4C8-4E4B-BFDB-FBCF23DD0CD5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "..\UnitTest\UnitTest.csproj", "{E6496031-D76C-4F71-AD31-E6A3A1A9559F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{136EECBE-D4C8-4E4B-BFDB-FBCF23DD0CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{136EECBE-D4C8-4E4B-BFDB-FBCF23DD0CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{136EECBE-D4C8-4E4B-BFDB-FBCF23DD0CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6496031-D76C-4F71-AD31-E6A3A1A9559F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6496031-D76C-4F71-AD31-E6A3A1A9559F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6496031-D76C-4F71-AD31-E6A3A1A9559F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6496031-D76C-4F71-AD31-E6A3A1A9559F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

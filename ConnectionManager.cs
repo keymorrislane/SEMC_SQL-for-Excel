@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using Microsoft.Office.Tools.Ribbon;
 
 namespace ConnectDatabase
 {
@@ -23,7 +18,6 @@ namespace ConnectDatabase
 
         private void ConnectionManagerButtonOK_Click(object sender, EventArgs e)
         {
-
             MySQLOperation newOperation = new MySQLOperation();
             string hostName, hostAddress, port, userName, password, defaultSchema = "";
             hostName = HostNameComboBox.Text;
@@ -38,16 +32,27 @@ namespace ConnectDatabase
                 if (newOperation.MakeConnection(hostName, hostAddress, userName,
                     password,port,defaultSchema))
                 {
-                    ConnectionManager.ActiveForm.Hide();
+                    ActiveForm.Close();
                     MessageBox.Show("连接成功！");
+                    ConnectionStatus.alive = true;
+                    ConnectionStatus.connectionName = hostName;
+                    Globals.Ribbons.Ribbon1.Disconnect.Enabled = true;
+                    password = AESModel.AESHelper.AESEncryptWithVector(password,
+                        "SEMCWangsese8586", "SEMCWangVector00");
                     newOperation.NewConnection(hostName, hostAddress, userName, 
                         password, port, defaultSchema);
                 }
                 else
                 {
-                    MessageBox.Show("连接失败，请检查填写是否有误！");
+                    MessageBox.Show("连接失败，请检查填写是否有误或服务器是否正常！");
                 }
             }
+            return;
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            ActiveForm.Close();
         }
     }
 }
