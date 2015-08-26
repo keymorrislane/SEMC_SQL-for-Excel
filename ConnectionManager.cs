@@ -56,8 +56,11 @@ namespace ConnectDatabase
                     Globals.Ribbons.Ribbon1.ImportInDB.Enabled = true;
                     password = AESModel.AESHelper.AESEncryptWithVector(password,
                         "SEMCWangsese8586", "SEMCWangVector00");
-                    newOperation.NewConnection(hostName, hostAddress, userName, 
-                        password, port, defaultSchema);
+                    if(newOperation.NewConnection(hostName, hostAddress, userName, 
+                        password, port, defaultSchema))
+                    {
+                        MessageBox.Show("新连接已存储！");
+                    }
                 }
                 else
                 {

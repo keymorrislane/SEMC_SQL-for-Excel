@@ -33,21 +33,20 @@ namespace ConnectDatabase
             if (System.IO.File.Exists(ConnectionStatus.xmlPath))
             {
                 dbInfo.Load(ConnectionStatus.xmlPath);
-                XmlNodeList recNode = dbInfo.GetElementsByTagName("DB");
-                XmlNodeList childList = null;
+                XmlNodeList recNode = dbInfo.SelectNodes("//DBInfo/DB");
                 //This is for each text in every child. That's we can easily find any text.
                 if(QuickConnect.Items.Count != 0)
                 {
                     QuickConnect.Items.Clear();
                 }
+
                 foreach (XmlNode node in recNode)
                 {
-                    childList = node.ChildNodes;
+                    string temp;
+                    temp = node.Attributes[0].Value.ToString();
                     this.QuickConnectItem = this.Factory.CreateRibbonButton();
-                    this.QuickConnectItem.Label = node.Attributes.
-                        GetNamedItem("HostName").InnerText;
-                    this.QuickConnectItem.Name = node.Attributes.
-                        GetNamedItem("HostName").InnerText;
+                    this.QuickConnectItem.Label = temp;
+                    this.QuickConnectItem.Name = temp;
                     this.QuickConnectItem.Click += 
                         new RibbonControlEventHandler(QuickConnectItems_Click);
                     this.QuickConnectItem.Visible = true;
@@ -57,7 +56,9 @@ namespace ConnectDatabase
                 }
                 dbInfo = null;
                 ConnectionStatus.xmlPath = null;
+                recNode = null;
             }
+            QuickConnectItem.Dispose();
         }
 
         private void QuickConnectItems_Click(object sender, RibbonControlEventArgs e)

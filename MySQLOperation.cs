@@ -47,6 +47,7 @@ namespace ConnectDatabase
             if (userRecord != null)
             {
                 userRecord.RemoveAll();
+                dbInfo.SelectSingleNode("//DBInfo").RemoveChild(userRecord);
             }
             root = dbInfo.DocumentElement;
             newAttribute = dbInfo.CreateAttribute("HostName");
@@ -62,6 +63,7 @@ namespace ConnectDatabase
             try
             {
                 dbInfo.Save(ConnectionStatus.xmlPath);
+                dbInfo = null; 
                 return true;
             }
             catch (Exception ex)

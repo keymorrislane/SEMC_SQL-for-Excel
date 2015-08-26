@@ -27,9 +27,23 @@ namespace ConnectDatabase
 
         private void AdvancedExport_Click(object sender, EventArgs e)
         {
-            AdvancedExport advancedExport = new AdvancedExport(
+            if(SchemaComboBox.Text == "" || SchemaComboBox.Text == null)
+            {
+                MessageBox.Show("请选择数据库！");
+                return;
+            }
+            else if(TableComboBox.Text == null || TableComboBox.Text == "")
+            {
+                MessageBox.Show("请选择数据表！");
+                return;
+            }
+            else
+            {
+                AdvancedExport advancedExport = new AdvancedExport(
                 TableComboBox.Text, SchemaComboBox.Text);
-            advancedExport.Show();
+                advancedExport.Show();
+                return;
+            }
         }
 
         private void Schema_Changed(object sender, EventArgs e)
