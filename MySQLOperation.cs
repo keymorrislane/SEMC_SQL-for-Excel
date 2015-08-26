@@ -93,27 +93,38 @@ namespace ConnectDatabase
             }
         }
 
+        private DataTable FillTable(MySqlDataAdapter data)
+        {
+            DataSet dataSet = new DataSet();
+            data.Fill(dataSet);
+            return dataSet.Tables[0];
+        }
+
         public DataTable GetSchemaNames(MySqlConnection connectionObj)
+            //取得库名
         {
             string cmdText = "show databases";
             MySqlDataAdapter data = new MySqlDataAdapter(cmdText, connectionObj);
-            DataSet dataSet = new DataSet();
-            data.Fill(dataSet);
-            DataTable dataTable = dataSet.Tables[0];
-            return dataTable;
+            return FillTable(data);
         }
 
         public DataTable GetTableNames(MySqlConnection connectionObj, string schema)
+            //取得表名
         {
             MySqlCommand cmd = new MySqlCommand("use " + schema, ConnectionStatus.thisConnection);
             int val = cmd.ExecuteNonQuery();
             cmd.Dispose();
             string cmdText = "show tables;";
             MySqlDataAdapter data = new MySqlDataAdapter(cmdText, connectionObj);
-            DataSet dataSet = new DataSet();
-            data.Fill(dataSet);
-            DataTable dataTable = dataSet.Tables[0];
-            return dataTable;
+            return FillTable(data);
+        }
+
+        public DataTable GetColumnNames(MySqlConnection connectionObj, 
+            string tableName)
+            //取得列名
+        {
+            MySqlDataAdapter data = new MySqlDataAdapter("describe " + tableName, connectionObj);
+            return FillTable(data);
         }
     }
 }

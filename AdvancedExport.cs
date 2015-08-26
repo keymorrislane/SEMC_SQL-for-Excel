@@ -13,18 +13,50 @@ namespace ConnectDatabase
         private ArrayList includeCol{ get; set;}
         private ArrayList excludeRow{ get; set;}
         private ArrayList excludeCol{ get; set;}
-        private int minRow { get; set; }
-        private int maxRow { get; set; }
-        private int minCol { get; set; }
-        private int maxCol { get; set; }
+        private long minRow { get; set; }
+        private long maxRow { get; set; }
+        private long minCol { get; set; }
+        private long maxCol { get; set; }
         private string rowLineNumberFilterStatus { get; set; }
         private string colLineNumberFilterStatus { get; set; }
 
-        public AdvancedExport()
+        public AdvancedExport(string tableName, string schemaName)
         {
             InitializeComponent();
+            InitializeBox(tableName, schemaName);
+        }
+
+        private void InitializeBox(string tableName, string schemaName)
+        {
             minRow = 1;
             minCol = 1;
+            MySqlDataAdapter data = new MySqlDataAdapter(
+                "select count(*) from " + tableName,
+                ConnectionStatus.thisConnection);
+            DataSet dataSet = new DataSet();
+            data.Fill(dataSet);
+            DataTable dataTable = dataSet.Tables[0];
+            maxRow = (long)dataTable.Rows[0].ItemArray[0];
+            data = new MySqlDataAdapter(
+                "select count(*) from information_schema.columns where table_schema='" + 
+                schemaName + "' and table_name='" + tableName + "'",
+                ConnectionStatus.thisConnection);
+            dataSet = new DataSet();
+            data.Fill(dataSet);
+            dataTable = dataSet.Tables[0];
+            maxCol = (long)dataTable.Rows[0].ItemArray[0];
+            MaxRow.Value = maxRow;
+            MaxCol.Value = maxCol;
+            MaxRow.Maximum = maxRow;
+            MaxCol.Maximum = maxCol;
+            MySQLOperation mysqlObj = new MySQLOperation();
+            DataTable columnNames = mysqlObj.GetColumnNames(
+                ConnectionStatus.thisConnection, tableName);
+            keyCol.Items.Clear();
+            for (int i = 0; i < columnNames.Rows.Count; i++)
+            {
+                keyCol.Items.Add(columnNames.Rows[i].ItemArray[0]);
+            }
         }
 
         private void AdvancedExport_OK(object sender, EventArgs e)

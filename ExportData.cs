@@ -16,7 +16,8 @@ namespace ConnectDatabase
         {
             InitializeComponent();
             MySQLOperation thisOperation = new MySQLOperation();
-            DataTable schemaNames = thisOperation.GetSchemaNames(ConnectionStatus.thisConnection);
+            DataTable schemaNames = thisOperation.GetSchemaNames(
+                ConnectionStatus.thisConnection);
             for (int i = 0; i < schemaNames.Rows.Count; i++)
             {
                 DataRow row = schemaNames.Rows[i];
@@ -26,7 +27,8 @@ namespace ConnectDatabase
 
         private void AdvancedExport_Click(object sender, EventArgs e)
         {
-            AdvancedExport advancedExport = new AdvancedExport();
+            AdvancedExport advancedExport = new AdvancedExport(
+                TableComboBox.Text, SchemaComboBox.Text);
             advancedExport.Show();
         }
 

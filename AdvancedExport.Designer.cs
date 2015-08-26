@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.RowFilter = new System.Windows.Forms.GroupBox();
+            this.keyCol = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.RowExcludeText = new System.Windows.Forms.RichTextBox();
@@ -54,8 +56,6 @@
             this.ColIncCheckBox = new System.Windows.Forms.CheckBox();
             this.FilterOK = new System.Windows.Forms.Button();
             this.FilterCancel = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.RowFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaxRow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinRow)).BeginInit();
@@ -66,7 +66,7 @@
             // 
             // RowFilter
             // 
-            this.RowFilter.Controls.Add(this.comboBox1);
+            this.RowFilter.Controls.Add(this.keyCol);
             this.RowFilter.Controls.Add(this.label11);
             this.RowFilter.Controls.Add(this.label5);
             this.RowFilter.Controls.Add(this.label4);
@@ -86,6 +86,23 @@
             this.RowFilter.TabStop = false;
             this.RowFilter.Text = "控制行";
             this.RowFilter.Enter += new System.EventHandler(this.RowFilter_Enter);
+            // 
+            // keyCol
+            // 
+            this.keyCol.FormattingEnabled = true;
+            this.keyCol.Location = new System.Drawing.Point(83, 45);
+            this.keyCol.Name = "keyCol";
+            this.keyCol.Size = new System.Drawing.Size(274, 21);
+            this.keyCol.TabIndex = 12;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(21, 48);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(55, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "关键字列";
             // 
             // label5
             // 
@@ -362,23 +379,6 @@
             this.FilterCancel.UseVisualStyleBackColor = true;
             this.FilterCancel.Click += new System.EventHandler(this.AdvancedExport_Cancel);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 48);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(55, 13);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "关键字列";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(83, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(274, 21);
-            this.comboBox1.TabIndex = 12;
-            // 
             // AdvancedExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -434,6 +434,6 @@
         private System.Windows.Forms.Button FilterCancel;
         public System.Windows.Forms.CheckBox RowIncCheckBox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox keyCol;
     }
 }

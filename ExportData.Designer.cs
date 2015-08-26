@@ -142,12 +142,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox TableComboBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox SchemaComboBox;
         private System.Windows.Forms.Button AdvancedExport;
+        public System.Windows.Forms.ComboBox TableComboBox;
     }
 }
