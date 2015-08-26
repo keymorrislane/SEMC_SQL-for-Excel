@@ -8,7 +8,8 @@ namespace ConnectDatabase
     {
         private void SEMC_SQL_For_Excel_Load(object sender, RibbonUIEventArgs e)
         {
-            
+            ExportFromSQL.Enabled = false;
+            ImportInDB.Enabled = false;
         }
 
         private void Connect_Click(object sender, RibbonControlEventArgs e)
@@ -88,6 +89,8 @@ namespace ConnectDatabase
                 ConnectionStatus.alive = true;
                 ConnectionStatus.connectionName = hostName;
                 Globals.Ribbons.Ribbon1.Disconnect.Enabled = true;
+                Globals.Ribbons.Ribbon1.ExportFromSQL.Enabled = true;
+                Globals.Ribbons.Ribbon1.ImportInDB.Enabled = true;
             }
             else
             {
@@ -110,6 +113,8 @@ namespace ConnectDatabase
             ConnectionStatus.thisConnection.Dispose();
             System.Windows.Forms.MessageBox.Show("连接已断开。");
             Globals.Ribbons.Ribbon1.Disconnect.Enabled = false;
+            Globals.Ribbons.Ribbon1.ExportFromSQL.Enabled = false;
+            Globals.Ribbons.Ribbon1.ImportInDB.Enabled = false;
             ConnectionStatus.alive = false;
             ConnectionStatus.connectionName = null;
         }

@@ -18,6 +18,7 @@ namespace ConnectDatabase
             get; set;
         }
         public static MySqlConnection thisConnection = new MySqlConnection();
+        public static MySqlCommand thiscmd = new MySqlCommand();
         private static string _xmlPath = Environment.GetFolderPath(
             Environment.SpecialFolder.Personal) + "\\SEMC_SQL_For_Excel.xml";
     }

@@ -42,7 +42,6 @@
             this.Data = this.Factory.CreateRibbonGroup();
             this.ExportFromSQL = this.Factory.CreateRibbonButton();
             this.ImportInDB = this.Factory.CreateRibbonButton();
-            this.Modify = this.Factory.CreateRibbonButton();
             this.DataBase.SuspendLayout();
             this.Connection.SuspendLayout();
             this.Data.SuspendLayout();
@@ -88,7 +87,6 @@
             // 
             this.Data.Items.Add(this.ExportFromSQL);
             this.Data.Items.Add(this.ImportInDB);
-            this.Data.Items.Add(this.Modify);
             this.Data.Label = "数据操作";
             this.Data.Name = "Data";
             // 
@@ -102,11 +100,6 @@
             // 
             this.ImportInDB.Label = "导入数据库";
             this.ImportInDB.Name = "ImportInDB";
-            // 
-            // Modify
-            // 
-            this.Modify.Label = "修改数据库";
-            this.Modify.Name = "Modify";
             // 
             // SEMC_SQL_For_Excel
             // 
@@ -132,7 +125,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup Data;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ExportFromSQL;
         public Microsoft.Office.Tools.Ribbon.RibbonButton ImportInDB;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton Modify;
         public Microsoft.Office.Tools.Ribbon.RibbonButton Disconnect;
         public Microsoft.Office.Tools.Ribbon.RibbonMenu QuickConnect;
     }

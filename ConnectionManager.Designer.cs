@@ -188,6 +188,8 @@
             this.Controls.Add(this.HostNameComboBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ConnectionManager";
             this.Text = "连接管理器";
             this.Load += new System.EventHandler(this.ConnectionManager_Load);

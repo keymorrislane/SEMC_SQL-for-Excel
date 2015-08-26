@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 using System.Xml;
 
 namespace ConnectDatabase
@@ -40,7 +41,9 @@ namespace ConnectDatabase
                 XMLAnalysis.CreateXML(ConnectionStatus.xmlPath);
                 dbInfo.Load(ConnectionStatus.xmlPath);
             }
-            XmlElement userRecord = dbInfo.GetElementById(hostName);
+            XmlNode userRecord = null;
+            userRecord = dbInfo.SelectSingleNode("//DBInfo/DB[@HostName='" + 
+                hostName + "']");
             if (userRecord != null)
             {
                 userRecord.RemoveAll();
@@ -79,7 +82,7 @@ namespace ConnectDatabase
             {
                 ConnectionStatus.thisConnection = new MySqlConnection(connectStr);
                 ConnectionStatus.thisConnection.Open();
-                this.connectStatus = true;
+                connectStatus = true;
                 return true;
             }
             catch (MySqlException ex)
@@ -89,11 +92,28 @@ namespace ConnectDatabase
                 return false;
             }
         }
-        static void Main(string[] args)
+
+        public DataTable GetSchemaNames(MySqlConnection connectionObj)
         {
-            MySQLOperation obj = new MySQLOperation();
-            obj.NewConnection("test","localhost","root","abcd1234","3206","test");
-            return;
+            string cmdText = "show databases";
+            MySqlDataAdapter data = new MySqlDataAdapter(cmdText, connectionObj);
+            DataSet dataSet = new DataSet();
+            data.Fill(dataSet);
+            DataTable dataTable = dataSet.Tables[0];
+            return dataTable;
+        }
+
+        public DataTable GetTableNames(MySqlConnection connectionObj, string schema)
+        {
+            MySqlCommand cmd = new MySqlCommand("use " + schema, ConnectionStatus.thisConnection);
+            int val = cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            string cmdText = "show tables;";
+            MySqlDataAdapter data = new MySqlDataAdapter(cmdText, connectionObj);
+            DataSet dataSet = new DataSet();
+            data.Fill(dataSet);
+            DataTable dataTable = dataSet.Tables[0];
+            return dataTable;
         }
     }
 }

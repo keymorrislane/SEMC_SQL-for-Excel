@@ -21,7 +21,6 @@ namespace ConnectDatabase
                 dbInfo.Load(ConnectionStatus.xmlPath);
                 XmlNodeList recNode = dbInfo.GetElementsByTagName("DB");
                 XmlNodeList childList = null;
-                //This is for each text in every child. That's we can easily find any text.
                 foreach (XmlNode node in recNode)
                 {
                     childList = node.ChildNodes;
@@ -34,7 +33,6 @@ namespace ConnectDatabase
 
         private void ConnectionManagerButtonOK_Click(object sender, EventArgs e)
         {
-            MySQLOperation newOperation = new MySQLOperation();
             string hostName, hostAddress, port, userName, password, defaultSchema;
             hostName = HostNameComboBox.Text;
             hostAddress = HostAddressTextBox.Text;
@@ -42,6 +40,7 @@ namespace ConnectDatabase
             userName = UserNameTextBox.Text;
             password = PasswordTextBox.Text;
             defaultSchema = DefaultSchemaTextBox.Text;
+            MySQLOperation newOperation = new MySQLOperation();
             if (hostName != "" && hostAddress != "" &&port != "" && 
                 userName != "" && password != "")
             {
@@ -53,6 +52,8 @@ namespace ConnectDatabase
                     ConnectionStatus.alive = true;
                     ConnectionStatus.connectionName = hostName;
                     Globals.Ribbons.Ribbon1.Disconnect.Enabled = true;
+                    Globals.Ribbons.Ribbon1.ExportFromSQL.Enabled = true;
+                    Globals.Ribbons.Ribbon1.ImportInDB.Enabled = true;
                     password = AESModel.AESHelper.AESEncryptWithVector(password,
                         "SEMCWangsese8586", "SEMCWangVector00");
                     newOperation.NewConnection(hostName, hostAddress, userName, 

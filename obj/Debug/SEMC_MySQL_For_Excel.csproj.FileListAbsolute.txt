@@ -20,3 +20,4 @@ C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\bin\Debug\MySql.Data.dll
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\bin\Debug\MySql.Data.Entity.dll
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\bin\Debug\MySql.Web.dll
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\SEMC_MySQL_For_Excel.csprojResolveAssemblyReference.cache
+C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.AdvancedExport.resources
