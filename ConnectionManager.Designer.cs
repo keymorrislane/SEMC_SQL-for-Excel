@@ -62,6 +62,8 @@
             this.HostNameComboBox.Name = "HostNameComboBox";
             this.HostNameComboBox.Size = new System.Drawing.Size(346, 21);
             this.HostNameComboBox.TabIndex = 1;
+            this.HostNameComboBox.SelectedIndexChanged += new System.EventHandler(this.HostNameComboBox_SelectedIndexChanged);
+            this.HostNameComboBox.SelectedValueChanged += new System.EventHandler(this.HostName_Changed);
             // 
             // label2
             // 
@@ -197,7 +199,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox HostNameComboBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox HostAddressTextBox;
         private System.Windows.Forms.Label label3;
@@ -210,5 +211,6 @@
         private System.Windows.Forms.TextBox DefaultSchemaTextBox;
         private System.Windows.Forms.Button ConnectionManagerButtonOK;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox HostNameComboBox;
     }
 }

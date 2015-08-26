@@ -38,11 +38,11 @@
             this.Connection = this.Factory.CreateRibbonGroup();
             this.QuickConnect = this.Factory.CreateRibbonMenu();
             this.Connect = this.Factory.CreateRibbonButton();
+            this.Disconnect = this.Factory.CreateRibbonButton();
             this.Data = this.Factory.CreateRibbonGroup();
             this.ExportFromSQL = this.Factory.CreateRibbonButton();
             this.ImportInDB = this.Factory.CreateRibbonButton();
             this.Modify = this.Factory.CreateRibbonButton();
-            this.Disconnect = this.Factory.CreateRibbonButton();
             this.DataBase.SuspendLayout();
             this.Connection.SuspendLayout();
             this.Data.SuspendLayout();
@@ -66,15 +66,23 @@
             // 
             // QuickConnect
             // 
+            this.QuickConnect.Dynamic = true;
             this.QuickConnect.Label = "快速连接";
             this.QuickConnect.Name = "QuickConnect";
-            this.QuickConnect.ItemsLoading += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.QuickConnect_ItemsLoading);
+            this.QuickConnect.ItemsLoading += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.QuickConnectMenu_ItemsLoading);
             // 
             // Connect
             // 
             this.Connect.Label = "新连接";
             this.Connect.Name = "Connect";
             this.Connect.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Connect_Click);
+            // 
+            // Disconnect
+            // 
+            this.Disconnect.Enabled = false;
+            this.Disconnect.Label = "断开连接";
+            this.Disconnect.Name = "Disconnect";
+            this.Disconnect.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Disconnect_Click);
             // 
             // Data
             // 
@@ -99,13 +107,6 @@
             // 
             this.Modify.Label = "修改数据库";
             this.Modify.Name = "Modify";
-            // 
-            // Disconnect
-            // 
-            this.Disconnect.Label = "断开连接";
-            this.Disconnect.Name = "Disconnect";
-            this.Disconnect.Enabled = false;
-            this.Disconnect.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Disconnect_Click);
             // 
             // SEMC_SQL_For_Excel
             // 
@@ -132,8 +133,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ExportFromSQL;
         public Microsoft.Office.Tools.Ribbon.RibbonButton ImportInDB;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton Modify;
-        internal Microsoft.Office.Tools.Ribbon.RibbonMenu QuickConnect;
         public Microsoft.Office.Tools.Ribbon.RibbonButton Disconnect;
+        public Microsoft.Office.Tools.Ribbon.RibbonMenu QuickConnect;
     }
 
     partial class ThisRibbonCollection

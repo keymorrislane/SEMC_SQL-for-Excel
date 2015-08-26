@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using Excel = Microsoft.Office.Interop.Excel;
-using Office = Microsoft.Office.Core;
-using Microsoft.Office.Tools.Excel;
+using MySql.Data.MySqlClient;
 
 namespace ConnectDatabase
 {
@@ -19,8 +13,13 @@ namespace ConnectDatabase
         {
             get; set;
         }
-        private static bool _alive = false;
-        private static string _connectName = "";
+        public static string xmlPath
+        {
+            get; set;
+        }
+        public static MySqlConnection thisConnection = new MySqlConnection();
+        private static string _xmlPath = Environment.GetFolderPath(
+            Environment.SpecialFolder.Personal) + "\\SEMC_SQL_For_Excel.xml";
     }
     public partial class SEMC_DB_Tools
     {
