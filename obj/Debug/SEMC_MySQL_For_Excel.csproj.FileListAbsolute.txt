@@ -10,7 +10,6 @@ C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\bin\Debug\Microsoft.Office.Too
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\bin\Debug\Microsoft.VisualStudio.Tools.Applications.Runtime.dll
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.ConnectionManager.resources
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.ExportData.resources
-C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.LineRangeWarning.resources
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.Properties.Resources.resources
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\ConnectDatabase.SEMC_SQL_For_Excel.resources
 C:\Dev\Proj\SEMC_SQL for Excel\SEMC_SQL-for-Excel\obj\Debug\SEMC_MySQL_For_Excel.csproj.GenerateResource.Cache

@@ -32,10 +32,10 @@
             this.TableComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Export_Confirm = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.SchemaComboBox = new System.Windows.Forms.ComboBox();
-            this.AdvancedExport = new System.Windows.Forms.Button();
+            this.AdvancedExport_Button = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +56,6 @@
             this.TableComboBox.Name = "TableComboBox";
             this.TableComboBox.Size = new System.Drawing.Size(319, 21);
             this.TableComboBox.TabIndex = 1;
-            this.TableComboBox.TextChanged += new System.EventHandler(this.Table_Changed);
             // 
             // groupBox1
             // 
@@ -79,14 +78,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(654, 338);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button2
+            // Export_Confirm
             // 
-            this.button2.Location = new System.Drawing.Point(543, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "执行导出";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Export_Confirm.Location = new System.Drawing.Point(543, 56);
+            this.Export_Confirm.Name = "Export_Confirm";
+            this.Export_Confirm.Size = new System.Drawing.Size(75, 23);
+            this.Export_Confirm.TabIndex = 9;
+            this.Export_Confirm.Text = "执行导出";
+            this.Export_Confirm.UseVisualStyleBackColor = true;
+            this.Export_Confirm.Click += new System.EventHandler(this.Export_Confirm_Click);
             // 
             // label5
             // 
@@ -106,25 +106,25 @@
             this.SchemaComboBox.TabIndex = 12;
             this.SchemaComboBox.TextChanged += new System.EventHandler(this.Schema_Changed);
             // 
-            // AdvancedExport
+            // AdvancedExport_Button
             // 
-            this.AdvancedExport.Location = new System.Drawing.Point(543, 20);
-            this.AdvancedExport.Name = "AdvancedExport";
-            this.AdvancedExport.Size = new System.Drawing.Size(75, 23);
-            this.AdvancedExport.TabIndex = 13;
-            this.AdvancedExport.Text = "高级设置";
-            this.AdvancedExport.UseVisualStyleBackColor = true;
-            this.AdvancedExport.Click += new System.EventHandler(this.AdvancedExport_Click);
+            this.AdvancedExport_Button.Location = new System.Drawing.Point(543, 20);
+            this.AdvancedExport_Button.Name = "AdvancedExport_Button";
+            this.AdvancedExport_Button.Size = new System.Drawing.Size(75, 23);
+            this.AdvancedExport_Button.TabIndex = 13;
+            this.AdvancedExport_Button.Text = "高级设置";
+            this.AdvancedExport_Button.UseVisualStyleBackColor = true;
+            this.AdvancedExport_Button.Click += new System.EventHandler(this.AdvancedExport_Click);
             // 
             // ExportData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 454);
-            this.Controls.Add(this.AdvancedExport);
+            this.Controls.Add(this.AdvancedExport_Button);
             this.Controls.Add(this.SchemaComboBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Export_Confirm);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TableComboBox);
             this.Controls.Add(this.label1);
@@ -143,11 +143,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Export_Confirm;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox SchemaComboBox;
-        private System.Windows.Forms.Button AdvancedExport;
         public System.Windows.Forms.ComboBox TableComboBox;
+        public System.Windows.Forms.Button AdvancedExport_Button;
     }
 }
